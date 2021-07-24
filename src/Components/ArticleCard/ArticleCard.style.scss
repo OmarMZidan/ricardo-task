@@ -1,0 +1,45 @@
+.card {
+  background-color: #fff;
+  width: 19%;
+  max-width: 215px;
+  margin-bottom: 1rem;
+  box-shadow: 2px 2px 12px 0 rgb(0 0 0 / 15%);
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  &__image {
+    height: 175px;
+    background-color: #e4e1dc;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      max-width: 100%;
+      width: auto;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+  }
+
+  &__content {
+    color: #000;
+    padding: 0.8rem;
+    font-size: 1rem;
+    .title {
+      font-weight: 600;
+      line-height: 1.2em;
+    }
+    .date {
+      font-weight: 600;
+      margin: 1rem 0;
+      span {
+        font-weight: 400;
+      }
+    }
+    .price {
+      font-weight: 600;
+      align-self: flex-end;
+    }
+  }
+}
