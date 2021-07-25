@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   background-color: #fff;
   width: 19%;
   max-width: 215px;
@@ -41,5 +42,10 @@
       font-weight: 600;
       align-self: flex-end;
     }
+  }
+  .favBtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }

@@ -1,5 +1,8 @@
 .header {
   margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   &__logo {
     width: 150px;
     height: auto;
