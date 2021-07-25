@@ -7,7 +7,7 @@ const FavouritesList = () => {
   const favourites = useSelector((state: State) => state.favourites);
 
   const renderList = favourites?.map((article) => (
-    <ArticleCard article={article} key={article.id} />
+    <ArticleCard article={article} key={article.id} icon="delete" />
   ));
 
   return (

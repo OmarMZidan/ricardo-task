@@ -1,5 +1,5 @@
 import { IconButton } from "@material-ui/core";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Article } from "../../utils/interfaces";
 import "./ArticleCard.style.scss";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -10,14 +10,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 interface IProps {
   article: Article;
+  icon?: string;
 }
 
-const ArticleCard = ({ article }: IProps) => {
+const ArticleCard = ({ article, icon = "add" }: IProps) => {
   const { id, title, imageUrl, endDate, buyNowPrice } = article;
   const favourites = useSelector((state: State) => state.favourites);
   const added = favourites.find((obj) => obj.id === article.id);
   const dispatch = useDispatch();
-  const pathname = window.location.pathname;
 
   const { AddProductToFavourites, RemoveProductFromFavourites } =
     bindActionCreators(actionCreators, dispatch);
@@ -34,6 +34,7 @@ const ArticleCard = ({ article }: IProps) => {
       AddProductToFavourites(article);
     }
   };
+
   return (
     <div className="card">
       <Link to={`/article/${id}`} style={{ textDecoration: "none" }}>
@@ -49,19 +50,20 @@ const ArticleCard = ({ article }: IProps) => {
         </div>
       </Link>
       <div className="favBtn">
-        {pathname === "/favourites" ? (
-          <IconButton
-            aria-label="delete"
-            onClick={() => RemoveProductFromFavourites(article.id)}
-          >
-            <DeleteIcon style={{ color: "red" }} />
-          </IconButton>
-        ) : (
+        {icon === "add" && (
           <IconButton
             aria-label="add"
             onClick={() => handleAddToFavourite(article)}
           >
             <FavoriteIcon style={{ color: added ? "#ef7310" : "unset" }} />
+          </IconButton>
+        )}
+        {icon === "delete" && (
+          <IconButton
+            aria-label="delete"
+            onClick={() => RemoveProductFromFavourites(article.id)}
+          >
+            <DeleteIcon style={{ color: "red" }} />
           </IconButton>
         )}
       </div>
