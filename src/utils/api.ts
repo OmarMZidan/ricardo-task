@@ -38,20 +38,3 @@ export const getArticleDetails = async (articleId: string) => {
   //   console.error(error);
   // }
 };
-
-// export const getArticleDetails = async (articleId: string) => {
-//   try {
-//     const response: ArticleResponse = await axios.get(
-//       `${baseUrl}article-details`,
-//       {
-//         params: {
-//           articleId: articleId,
-//           apiToken: token,
-//         },
-//       }
-//     );
-//     return response;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };

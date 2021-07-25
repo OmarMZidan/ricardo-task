@@ -3,7 +3,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  &__img {
+  .img {
     width: 49%;
     height: 450px;
     background-color: white;
@@ -17,12 +17,27 @@
       border-radius: 5px;
     }
   }
-  &__content {
+  .content {
     background-color: #fff;
     width: 49%;
+    overflow: hidden;
     border: 1px solid lightgray;
     border-radius: 5px;
     box-shadow: 1px 1px 6px 0 rgb(0 0 0 / 5%);
     padding: 1.5rem;
+    &__subtitle {
+      margin-top: 0.8rem;
+    }
+    &__divider {
+      width: 80%;
+      margin: 0 auto;
+      height: 1px;
+      background-color: #ccc;
+      border: none;
+      margin: 1.6rem 0;
+    }
+    &--span {
+      font-weight: 600;
+    }
   }
 }
