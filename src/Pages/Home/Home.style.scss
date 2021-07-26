@@ -1,8 +1,15 @@
 .home {
   display: flex;
   width: 100%;
+  @media screen and(max-width: 768px) {
+    flex-direction: column;
+  }
 
   .MuiTextField-root {
     padding-right: 1rem;
+    @media screen and(max-width: 768px) {
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
   }
 }

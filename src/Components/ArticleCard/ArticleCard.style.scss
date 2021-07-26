@@ -7,6 +7,19 @@
   box-shadow: 2px 2px 12px 0 rgb(0 0 0 / 15%);
   border: 1px solid lightgray;
   border-radius: 5px;
+
+  @media screen and(max-width: 1024px) {
+    width: 32%;
+    max-width: unset;
+  }
+  @media screen and(max-width: 768px) {
+    width: 49%;
+    max-width: unset;
+  }
+  @media screen and(max-width: 480px) {
+    width: 100%;
+    max-width: unset;
+  }
   &__image {
     height: 175px;
     background-color: #e4e1dc;

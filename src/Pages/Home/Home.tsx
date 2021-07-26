@@ -25,6 +25,7 @@ const Home = () => {
         variant="outlined"
         autoFocus
         fullWidth
+        className="searchInput"
         value={searchText}
         onChange={handleSearchTextChange}
       />
