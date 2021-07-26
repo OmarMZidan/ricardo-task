@@ -1,5 +1,7 @@
 import { ArticleDetails } from "../../utils/interfaces";
+// using DOMPurify to sanitize HTML and prevents XSS attacks
 import DOMPurify from "dompurify";
+
 interface IProps {
   productDetails: ArticleDetails;
   sellerName: string;
@@ -21,6 +23,7 @@ const ProductDetailsContent = ({ productDetails, sellerName }: IProps) => {
         {price} CHF
       </p>
       <hr className="content__divider" />
+      {/* using DOMPurify to sanitize HTML and prevents XSS attacks */}
       <div
         dangerouslySetInnerHTML={{
           __html: DOMPurify.sanitize(descriptionHtml),

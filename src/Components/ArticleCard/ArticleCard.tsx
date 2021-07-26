@@ -7,26 +7,24 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { bindActionCreators } from "redux";
 import { actionCreators, State } from "../../Redux";
 import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 
 interface IProps {
   article: Article;
   icon?: string;
 }
 
+// Article Card Component: shared in search result page & favourites page
 const ArticleCard = ({ article, icon = "add" }: IProps) => {
   const { id, title, imageUrl, endDate, buyNowPrice } = article;
+  //get favourites list from redux state
   const favourites = useSelector((state: State) => state.favourites);
+  //check if the article is added to change the color of the icon
   const added = favourites.find((obj) => obj.id === article.id);
   const dispatch = useDispatch();
 
   const { AddProductToFavourites, RemoveProductFromFavourites } =
     bindActionCreators(actionCreators, dispatch);
-
-  // const convertDate = (date: string) => {
-  //   let convertedDate = new Date(date).toUTCString();
-  //   console.log(convertedDate);
-  //   return convertedDate;
-  // };
 
   const handleAddToFavourite = (article: Article) => {
     // check if the article object already exist in the favourites array before adding
@@ -44,12 +42,14 @@ const ArticleCard = ({ article, icon = "add" }: IProps) => {
         <div className="card__content">
           <div className="title">{title}</div>
           <div className="date">
-            <span>Ending on:</span> {new Date(endDate).toUTCString()}
+            <span>Ending on:</span>
+            {moment(endDate).format("YYYY-MM-DD HH:mm:ss")}
           </div>
           {buyNowPrice && <div className="price">{buyNowPrice} CHF</div>}
         </div>
       </Link>
       <div className="favBtn">
+        {/* render icon depending on icon prop */}
         {icon === "add" && (
           <IconButton
             aria-label="add"

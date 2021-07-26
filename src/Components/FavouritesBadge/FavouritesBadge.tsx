@@ -7,6 +7,7 @@ import { State } from "../../Redux";
 import { Link } from "react-router-dom";
 
 const FavouritesBadge = () => {
+  //get favourites list from redux state
   const favourites = useSelector((state: State) => state.favourites);
 
   const StyledBadge = withStyles((theme: Theme) =>

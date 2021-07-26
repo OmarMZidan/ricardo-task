@@ -33,6 +33,7 @@ const Home = () => {
         color="primary"
         size="large"
         startIcon={<SearchIcon />}
+        //disabled if the search text is empty
         disabled={!searchText}
         onClick={handleSearchClick}
       >

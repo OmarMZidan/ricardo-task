@@ -5,8 +5,10 @@ import GoHome from "../../Components/GoHome/GoHome";
 import { State } from "../../Redux";
 
 const FavouritesList = () => {
+  //get favourites list from redux state
   const favourites = useSelector((state: State) => state.favourites);
 
+  //render favourites list using article card component
   const renderList = favourites?.map((article) => (
     <ArticleCard article={article} key={article.id} icon="delete" />
   ));

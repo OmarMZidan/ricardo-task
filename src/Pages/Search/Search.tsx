@@ -12,11 +12,11 @@ const Search = () => {
   const [searchResult, setSearchResult] = useState<SearchData | undefined>(
     undefined
   );
-
-  const [page, setPage] = useState(1);
-  const productsPerPage = 30;
+  const [page, setPage] = useState(1); //page number
+  const productsPerPage = 30; //number of products showed per page
   const [totalPages, setTotalPages] = useState(0);
   const startIndex = (page - 1) * productsPerPage;
+  //get selected products to be shown on this page
   const selectedProducts = searchResult?.articles.slice(
     startIndex,
     startIndex + productsPerPage
@@ -25,13 +25,12 @@ const Search = () => {
   useEffect(() => {
     getSearchResult(searchText).then((response) => {
       setSearchResult(response?.data);
-      console.log(response?.data.articles);
       setTotalPages(
         Math.ceil(response!.data.articles.length / productsPerPage)
       );
     });
   }, [searchText]);
-
+  //render selected products using article card component
   const renderList = selectedProducts?.map((article) => (
     <ArticleCard article={article} key={article.id} />
   ));
@@ -52,6 +51,7 @@ const Search = () => {
           </div>
         </Fragment>
       ) : (
+        //show loader if search result is not ready yet
         <CircularProgress />
       )}
     </div>

@@ -5,6 +5,7 @@ import "./GoHome.style.scss";
 import HomeIcon from "@material-ui/icons/Home";
 import { ChildrenProps } from "../../utils/interfaces";
 
+//Go Home component: shared in 404 page & Empty favourites list
 const GoHome = ({ children }: ChildrenProps) => {
   return (
     <div className="notFound">

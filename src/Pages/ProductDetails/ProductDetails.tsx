@@ -33,6 +33,7 @@ const ProductDetails = () => {
           />
         </>
       ) : (
+        //show loader if product details is not ready yet
         <CircularProgress />
       )}
     </div>
