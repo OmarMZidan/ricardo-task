@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
+import GoHome from "../../Components/GoHome/GoHome";
 import "./NotFound.style.scss";
 
 const NotFound = () => (
-  <div className="notFound">
+  <GoHome>
     <h1>404 - Page Not Found!</h1>
-    <Link to="/">Go Home</Link>
-  </div>
+  </GoHome>
 );
 
 export default NotFound;

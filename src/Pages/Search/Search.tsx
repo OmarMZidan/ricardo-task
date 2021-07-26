@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSearchResult } from "../../utils/api";
 import { SearchData } from "./../../utils/interfaces";
@@ -16,7 +16,6 @@ const Search = () => {
   const [page, setPage] = useState(1);
   const productsPerPage = 30;
   const [totalPages, setTotalPages] = useState(0);
-
   const startIndex = (page - 1) * productsPerPage;
   const selectedProducts = searchResult?.articles.slice(
     startIndex,
@@ -26,6 +25,7 @@ const Search = () => {
   useEffect(() => {
     getSearchResult(searchText).then((response) => {
       setSearchResult(response?.data);
+      console.log(response?.data.articles);
       setTotalPages(
         Math.ceil(response!.data.articles.length / productsPerPage)
       );
@@ -39,7 +39,7 @@ const Search = () => {
   return (
     <div className="container">
       {searchResult ? (
-        <>
+        <Fragment>
           <p className="count">Total count: {searchResult.totalCount}</p>
           <div className="cards">{renderList}</div>
           <div className="pagination">
@@ -50,7 +50,7 @@ const Search = () => {
               onChange={(e, value) => setPage(value)}
             />
           </div>
-        </>
+        </Fragment>
       ) : (
         <CircularProgress />
       )}

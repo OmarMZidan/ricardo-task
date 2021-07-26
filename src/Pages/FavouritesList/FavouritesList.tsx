@@ -1,6 +1,7 @@
-import { CircularProgress } from "@material-ui/core";
+import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import ArticleCard from "../../Components/ArticleCard/ArticleCard";
+import GoHome from "../../Components/GoHome/GoHome";
 import { State } from "../../Redux";
 
 const FavouritesList = () => {
@@ -12,12 +13,14 @@ const FavouritesList = () => {
 
   return (
     <div className="container">
-      {favourites ? (
-        <>
+      {favourites.length > 0 ? (
+        <Fragment>
           <div className="cards">{renderList}</div>
-        </>
+        </Fragment>
       ) : (
-        <CircularProgress />
+        <GoHome>
+          <h1>Your favorites list is empty!</h1>
+        </GoHome>
       )}
     </div>
   );

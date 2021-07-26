@@ -37,3 +37,7 @@ export interface User {
 export interface GetUserResponse {
   data: User;
 }
+
+export interface ChildrenProps {
+  children: React.ReactNode;
+}
